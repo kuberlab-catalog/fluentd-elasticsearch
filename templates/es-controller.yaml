@@ -23,8 +23,10 @@ spec:
           # need more cpu upon initialization, therefore burstable class
           limits:
             cpu: "{{ .Values.elastic.cpu.limits }}"
+            memory: "{{ .Values.elastic.memory.limits }}"
           requests:
             cpu: "{{ .Values.elastic.cpu.requests }}"
+            memory: "{{ .Values.elastic.memory.requests }}"
         ports:
         - containerPort: 9200
           name: db
