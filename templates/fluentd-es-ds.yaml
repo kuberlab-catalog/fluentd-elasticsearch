@@ -4,13 +4,13 @@ metadata:
   name: fluentd-es-v1.22
   labels:
     k8s-app: fluentd-es
-    version: {{.Values.fluentd.image.tag}}
+    version: {{.Values.fluentd.image.Tag}}
 spec:
   template:
     metadata:
       labels:
         k8s-app: fluentd-es
-        version: {{.Values.fluentd.image.tag}}
+        version: {{.Values.fluentd.image.Tag}}
       # This annotation ensures that fluentd does not get evicted if the node
       # supports critical pod annotation based priority scheme.
       # Note that this does not guarantee admission on the nodes (#40573).
@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: fluentd-es
-        image: {{.Values.fluentd.image.name}}:{{.Values.fluentd.image.tag}}
+        image: {{.Values.fluentd.image.Name}}:{{.Values.fluentd.image.Tag}}
         command:
           - '/bin/sh'
           - '-c'

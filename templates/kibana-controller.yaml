@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: kibana-logging
-        image: {{.Values.kibana.image.name}}:{{.Values.kibana.image.tag}}
+        image: {{.Values.kibana.image.Name}}:{{.Values.kibana.image.Tag}}
         resources:
           # keep request = limit to keep this container in guaranteed class
           limits:

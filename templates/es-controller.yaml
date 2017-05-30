@@ -17,7 +17,7 @@ spec:
         version: v1
     spec:
       containers:
-      - image: {{.Values.elastic.image.name}}:{{.Values.elastic.image.tag}}
+      - image: {{.Values.elastic.image.Name}}:{{.Values.elastic.image.Tag}}
         name: elasticsearch-logging
         resources:
           # need more cpu upon initialization, therefore burstable class
