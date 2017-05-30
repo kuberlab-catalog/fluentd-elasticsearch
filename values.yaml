@@ -1,5 +1,5 @@
 elastic:
-  replicas: 1
+  replicas: 2
   cpu:
     requests: "100m"
     limits: "1000m"
