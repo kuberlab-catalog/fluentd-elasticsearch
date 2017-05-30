@@ -1,0 +1,33 @@
+elastic:
+  replicas: 1
+  cpu:
+    requests: "100m"
+    limits: "1000m"
+  memory:
+    requests: "64Mi"
+    limits: "4Gi"
+  image:
+    Name: gcr.io/google_containers/elasticsearch
+    Tag: v2.4.1-2
+kibana:
+  replicas: 1
+  cpu:
+    requests: "100m"
+    limits: "1000m"
+  memory:
+    requests: "64Mi"
+    limits: "4Gi"
+  image:
+    Name: gcr.io/google_containers/kibana
+    Tag: v4.6.1-1
+fluentd:
+  replicas: 1
+  cpu:
+    requests: "100m"
+    limits: "1000m"
+  memory:
+    requests: "64Mi"
+    limits: "4Gi"
+  image:
+    Name: gcr.io/google_containers/fluentd-elasticsearch
+    Tag: "1.22"

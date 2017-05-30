@@ -1,0 +1,14 @@
+name: fluentd-elasticsearch
+home: https://github.com/kuberlab-catalog/fluentd-elasticsearch
+version: 1.0.0
+description: Kubernetes logs
+sources:
+  - https://github.com/kuberlab-catalog/fluentd-elasticsearch
+maintainers:
+  - name: Alexander Gunin
+keywords:
+  - keubernetes
+  - fluentd
+  - elasticsearch
+  - monitoring
+icon: https://dev.kuberlab.io/favicon.ico

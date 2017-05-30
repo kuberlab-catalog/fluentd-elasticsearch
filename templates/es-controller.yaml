@@ -1,0 +1,45 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: elasticsearch-logging-v1
+  labels:
+    k8s-app: elasticsearch-logging
+    version: v1
+spec:
+  replicas: {{.Values.elastic.replicas}}
+  selector:
+    k8s-app: elasticsearch-logging
+    version: v1
+  template:
+    metadata:
+      labels:
+        k8s-app: elasticsearch-logging
+        version: v1
+    spec:
+      containers:
+      - image: {{.Values.elastic.image.name}}:{{.Values.elastic.image.tag}}
+        name: elasticsearch-logging
+        resources:
+          # need more cpu upon initialization, therefore burstable class
+          limits:
+            cpu: "{{ .Values.elastic.cpu.limits }}"
+          requests:
+            cpu: "{{ .Values.elastic.cpu.requests }}"
+        ports:
+        - containerPort: 9200
+          name: db
+          protocol: TCP
+        - containerPort: 9300
+          name: transport
+          protocol: TCP
+        volumeMounts:
+        - name: es-persistent-storage
+          mountPath: /data
+        env:
+        - name: "NAMESPACE"
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+      volumes:
+      - name: es-persistent-storage
+        emptyDir: {}
